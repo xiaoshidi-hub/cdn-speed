@@ -1,0 +1,52 @@
+ll                                             查看当前目录下有啥文件
+ls -lA                                       查看工作区当前文件夹下的影藏资源
+git  init                                    初始化工作区 创建.git目录
+ll .git                                        查看工作区.git目录下的文件（.git目录下的文件不要动）
+git config user.name liuyao                    设置签名
+git config user.email liuyao@163.com   设置签名  这里设置的签名和登录远程库(代码托管中心)的账号、密码没有任何关系。
+cat .git/config                       查看这个签名
+git status                               查看工作区状态
+git add git.txt                        把工作区内容(git.txt文件)提交到暂存区
+git rm --cached git.txt           把提交到暂存区的内容(git.txt文件)撤回到工作区
+git commit -m "my first commit" git.txt   把暂存区的内容(git.txt文件)提交到本地库
+git log                                   查看版本历史记录（方式一）
+git log --pretty=oneline       查看版本历史记录（方式二）
+git log --oneline                   查看版本历史记录（方式三）
+git reflog                              查看版本历史记录（方式四）
+git remote -v                        可以查看我们要推送到哪一个远程库，显示要推送远程库的地址
+
+本地库与远程库建立连接
+1、git  init                                 初始化工作区 创建.git目录
+2、git add git.txt                                     把工作区内容(git.txt文件)提交到暂存区
+3、git commit -m "my first commit" git.txt   把暂存区的内容(git.txt文件)提交到本地库
+4、git remote add origin https://github.com/xiaoshidi-hub/cdn-speed.git  
+                          这句话的意思是我们给https://github.com/xiaoshidi-hub/cdn-speed.git 
+                          取一个别名，以后就用origin来代替https://github.com/xiaoshidi-hub/cdn-speed.git，而不用每一次输入原程库的仓库地址。
+4、git push origin master
+     回车之后，弹出登录远程库的界面，输入要推送到远程库的用户名和用户名密码。
+5.之后本地库就推送到远程库了。
+
+
+把远程库xxx克隆到本地库（前提是你已经在github上面新建了一个库，或者有远程库的地址链接）
+1、git origin  [远程地址]
+     如  git origin  https://github.com/xiaoya-hub/cdn.git  
+2、这样你就把xiaoya的库克隆到你的本地了。
+3、现在你就可以使用小雅库里面的东西了。
+
+刘尧要克隆小雅的xxx远程库修改之后再提交给小雅（多个人之间的操作）
+1、git origin  [小雅远程库的地址]
+     如  git origin  https://github.com/xiaoya-hub/cdn.git  
+2、这样你就把xiaoya的库克隆到你的本地了。
+3、现在我就可以使用小雅库里面的东西了。假如我在库里面添加了一个good.txt文件。之后要把这个文件推送到小雅的远程库
+      git add good.txt                                                 把工作区内容(good.txt文件)提交到暂存区
+      git commit -m "这里填备注，随便写" good.txt   把暂存区的内容(git.txt文件)提交到本地库
+      git push origin master       这里因为小雅没有邀请你，所以你这命令会出错。必须要让小雅邀请你。
+4、登录小雅的github 打开小雅的xxx库->settings->collaborators->填上刘尧的github用户名->点击Copy invite link->复制小雅xxx远程库地址
+     把地址发送给刘尧
+5、刘尧登录自己的github，访问小雅发送给自己的链接。会发现小雅邀请自己的界面，点击接受就好了。
+6、在刘尧的本地文件夹执行 git push origin master 执行推送。
+
+
+
+
+
